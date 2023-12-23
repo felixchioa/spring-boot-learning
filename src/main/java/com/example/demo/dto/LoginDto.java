@@ -1,10 +1,13 @@
 package com.example.demo.dto;
 
+/**
+ * This class represents the LoginDto.
+ * @author: Your Name
+ */
 public class LoginDto {
     private String username;
     private String password;
 
-    // Getters and Setters
     public String getUsername() {
         return username;
     }
