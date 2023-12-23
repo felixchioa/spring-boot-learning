@@ -23,7 +23,7 @@ public class LoginController {
     private static final String VALID_PASSWORD = "pwd";
 
     @PostMapping("/login")
-    public String login(LoginDto loginDto) {
+    public String login(@ModelAttribute LoginDto loginDto) {
         if (VALID_USERNAME.equals(loginDto.getUsername()) && VALID_PASSWORD.equals(loginDto.getPassword())) {
             return "redirect:/welcome";
         }
