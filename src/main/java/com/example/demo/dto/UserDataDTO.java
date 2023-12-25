@@ -1,13 +1,29 @@
 package com.example.demo.dto;
 
+/**
+ * @author: FoneZzz
+ */
 public class UserDataDTO {
+    /**
+     * Returns a string representation of the UserDataDTO object.
+     *
+     * @return the string representation of the UserDataDTO object.
+     */
+    @Override
+    public String toString() {
+        return "UserDataDTO{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
+    }
+
     private String username;
-    private int age;
-    private int id;
+    private Integer age;
+    private Integer id;
 
     public UserDataDTO() {
-        this.username = username;
-        this.age = age;
+
     }
 
     public String getUsername() {
@@ -33,6 +49,4 @@ public class UserDataDTO {
     public void setId(int id) {
         this.id = id;
     }
-
-
 }

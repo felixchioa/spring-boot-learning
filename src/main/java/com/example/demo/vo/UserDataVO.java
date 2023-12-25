@@ -1,13 +1,24 @@
 package com.example.demo.vo;
 
+/**
+ * @author FoneZzz
+ */
 public class UserDataVO {
-    private String username;
-    private int age;
+    /**
+     * Returns a string representation of the UserDataVO object.
+     *
+     * @return the string representation of the UserDataVO object.
+     */
+    @Override
+    public String toString() {
+        return "UserDataVO{" +
+                "username='" + username + '\'' +
+                ", age=" + age +
+                '}';
+    }
 
-//    public UserDataVO() {
-//        this.username = username;
-//        this.age = age;
-//    }
+    private String username;
+    private Integer age;
 
     public String getUsername() {
         return username;
