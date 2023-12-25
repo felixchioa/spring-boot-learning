@@ -51,6 +51,7 @@ public class UserController {
     public UserDataDTO updateUser(@RequestBody UserDataDTO dto) {
         // TODO: update user
         System.out.println("update user id: " + dto.getId());
+        System.out.println(dto);
         return dto;
     }
 
