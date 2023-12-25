@@ -23,6 +23,7 @@ public class UserController {
             UserDataVO userDataVO = new UserDataVO();
             userDataVO.setAge(i);
             userDataVO.setUsername("user" + i);
+            System.out.println(userDataVO);
             userList.add(userDataVO);
         }
 

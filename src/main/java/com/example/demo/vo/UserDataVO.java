@@ -11,10 +11,7 @@ public class UserDataVO {
      */
     @Override
     public String toString() {
-        return "UserDataVO{" +
-                "username='" + username + '\'' +
-                ", age=" + age +
-                '}';
+        return "UserDataVO{" + "username='" + username + '\'' + ", age=" + age + '}';
     }
 
     private String username;

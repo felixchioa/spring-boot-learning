@@ -11,11 +11,7 @@ public class UserDataDTO {
      */
     @Override
     public String toString() {
-        return "UserDataDTO{" +
-                "username='" + username + '\'' +
-                ", age=" + age +
-                ", id=" + id +
-                '}';
+        return "UserDataDTO{" + "username='" + username + '\'' + ", age=" + age + ", id=" + id + '}';
     }
 
     private String username;
