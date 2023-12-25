@@ -1,7 +1,7 @@
 package com.example.demo.dto;
 
 /**
- * @author: FoneZzz
+ * @author FoneZzz
  */
 public class UserDataDTO {
     /**

@@ -42,6 +42,7 @@ public class UserController {
     public UserDataDTO insertUser(@RequestBody UserDataDTO dto) {
         // TODO: insert user
         System.out.println("insert user id: " + dto.getId());
+        System.out.println(dto);
         return dto;
     }
 
