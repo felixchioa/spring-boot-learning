@@ -4,32 +4,54 @@ package com.example.demo.vo;
  * @author FoneZzz
  */
 public class UserDataVO {
-    /**
-     * Returns a string representation of the UserDataVO object.
-     *
-     * @return the string representation of the UserDataVO object.
-     */
-    @Override
-    public String toString() {
-        return "UserDataVO{" + "username='" + username + '\'' + ", age=" + age + '}';
+    /** 主键ID */
+    private Long id;
+    /** 姓名 */
+    private String name;
+    /** 年龄 */
+    private int age;
+    /** 邮箱 */
+    private String email;
+    /** 头像 */
+    private String avatar;
+
+    public Long getId() {
+        return id;
     }
 
-    private String username;
-    private Integer age;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

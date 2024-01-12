@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper">
+    <resultMap type="com.example.demo.vo.UserDataVO" id="UserResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="age" column="age"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <sql id="selectUserListSql">
+        SELECT id, name, age, email, avatar FROM user
+    </sql>
+
+    <select id="getUserList" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
+        <include refid="selectUserListSql"/>
+    </select>
+
+    <insert id="insertUser" parameterType="com.example.demo.entity.User">
+        INSERT INTO user (name, age, email, avatar) VALUES (#{user.name}, #{user.age}, #{user.email}, #{user.avatar})
+    </insert>
+
+    <update id="updateUser">
+
+    </update>
+
+    <delete id="deleteUser">
+
+    </delete>
+
+</mapper>

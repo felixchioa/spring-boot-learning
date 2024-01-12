@@ -1,9 +1,9 @@
-package com.example.demo.dto;
+package com.example.demo.entity;
 
 /**
  * @author FoneZzz
  */
-public class UserDataDTO {
+public class User {
     /** 主键ID */
     private Long id;
     /** 姓名 */

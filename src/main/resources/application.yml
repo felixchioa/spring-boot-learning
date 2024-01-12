@@ -1,12 +1,12 @@
 server:
   port: 8080
 spring:
-  # datasource:
-  #   url: jdbc:mysql://localhost:3306/spl_demo?useSSL=false&serverTimezone=UTC
-  #   # url: jdbc:mysql://10.10.219.58:3380/sid_db_sp?useSSL=false&serverTimezone=UTC
-  #   username: root
-  #   password: root
-  #   driver-class-name: com.mysql.cj.jdbc.Driver
+  datasource:
+#     url: jdbc:mysql://localhost:3306/spl_demo?useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://10.10.219.58:3380/sid_db_sp?useSSL=false&serverTimezone=UTC
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:
       max-file-size: 200MB
@@ -15,4 +15,4 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.pactera.learn.spring.mapper
+#  type-aliases-package: com.pactera.learn.spring.mapper

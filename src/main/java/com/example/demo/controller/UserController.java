@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.UserDataDTO;
+import com.example.demo.service.IUserService;
 import com.example.demo.vo.UserDataVO;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
@@ -15,19 +16,27 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
     private static final int USER_LIST_SIZE = 10;
+    private IUserService userService;
 
+    /**
+     * Get user list.
+     *
+     * @return {@link List<UserDataVO>}
+     */
     @GetMapping("/user")
     public List<UserDataVO> getUserList() {
-        List<UserDataVO> userList = new ArrayList<>();
-        for (int i = 0; i < USER_LIST_SIZE; i++) {
-            UserDataVO userDataVO = new UserDataVO();
-            userDataVO.setAge(i);
-            userDataVO.setUsername("user" + i);
-            System.out.println(userDataVO);
-            userList.add(userDataVO);
-        }
+//        List<UserDataVO> userList = new ArrayList<>();
+//        for (int i = 0; i < USER_LIST_SIZE; i++) {
+//            UserDataVO userDataVO = new UserDataVO();
+//            userDataVO.setAge(i);
+//            userDataVO.setUsername("user" + i);
+//            System.out.println(userDataVO);
+//            userList.add(userDataVO);
+//        }
 
-        return userList;
+//        return userList;
+        UserDataDTO dto = new UserDataDTO();
+        return userService.getUserList(dto);
     }
 
     @GetMapping("/user/{id}")
@@ -35,7 +44,7 @@ public class UserController {
         System.out.println("get user detail id: " + id);
         UserDataVO userDataVO = new UserDataVO();
         userDataVO.setAge(id);
-        userDataVO.setUsername("user" + id);
+//        userDataVO.setUsername("user" + id);
         return userDataVO;
     }
 
