@@ -10,7 +10,8 @@
     </resultMap>
 
     <sql id="selectUserListSql">
-        SELECT id, name, age, email, avatar FROM user
+        SELECT id, name, age, email, avatar
+        FROM m_user
     </sql>
 
     <select id="getUserList" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
@@ -18,15 +19,23 @@
     </select>
 
     <insert id="insertUser" parameterType="com.example.demo.entity.User">
-        INSERT INTO user (name, age, email, avatar) VALUES (#{user.name}, #{user.age}, #{user.email}, #{user.avatar})
+        INSERT INTO m_user (name, age, email, avatar)
+        VALUES (#{user.name}, #{user.age}, #{user.email}, #{user.avatar})
     </insert>
 
     <update id="updateUser">
-
+        UPDATE m_user
+        SET name   = #{user.name},
+            age    = #{user.age},
+            email  = #{user.email},
+            avatar = #{user.avatar}
+        WHERE id = #{user.id}
     </update>
 
     <delete id="deleteUser">
-
+        DELETE
+        FROM m_user
+        WHERE id = #{id}
     </delete>
 
 </mapper>
