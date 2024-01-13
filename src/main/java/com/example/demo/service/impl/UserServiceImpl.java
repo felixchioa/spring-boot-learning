@@ -42,6 +42,17 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
+     * Get user list.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link List<UserDataVO>}
+     */
+    @Override
+    public List<UserDataVO> getUserListLikeName(UserDataDTO requestDto) {
+        return userMapper.getUserListLikeName(requestDto);
+    }
+
+    /**
      * Insert user.
      *
      * @param requestDto {@link UserDataDTO}
@@ -50,6 +61,17 @@ public class UserServiceImpl implements IUserService {
     @Override
     public int insertUser(UserDataDTO requestDto) {
         return userMapper.insertUser(requestDto);
+    }
+
+    /**
+     * Insert users.
+     *
+     * @param users users
+     * @return {@link int}
+     */
+    @Override
+    public int insertUsers(List<UserDataDTO> users) {
+        return userMapper.insertUsers(users);
     }
 
     /**

@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    private static final int USER_LIST_SIZE = 10;
     @Autowired
     private IUserService userService;
 
@@ -29,6 +28,18 @@ public class UserController {
     public List<UserDataVO> getUserList(UserDataDTO requestDto) {
         System.out.println("get user list");
         return userService.getUserList(requestDto);
+    }
+
+    /**
+     * Get user list.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link List<UserDataVO>}
+     */
+    @PostMapping("/users/name")
+    public List<UserDataVO> getUserListLikeName(@RequestBody UserDataDTO requestDto) {
+        System.out.println("get user list name like : " + requestDto.getName());
+        return userService.getUserListLikeName(requestDto);
     }
 
     /**
@@ -59,6 +70,17 @@ public class UserController {
     }
 
     /**
+     * Insert users.
+     *
+     * @param users {@link List<UserDataDTO>}
+     * @return {@link int}
+     */
+    @PostMapping("/users")
+    public int insertUsers(@RequestBody List<UserDataDTO> users) {
+        return userService.insertUsers(users);
+    }
+
+    /**
      * Update user.
      *
      * @param requestDto {@link UserDataDTO}
@@ -78,9 +100,8 @@ public class UserController {
      * @return {@link UserDataVO}
      */
     @DeleteMapping("/user/{id}")
-    public Boolean deleteUser(@PathVariable Integer id) {
-        // TODO: delete user
+    public int deleteUser(@PathVariable Integer id) {
         System.out.println("delete user id: " + id);
-        return true;
+        return userService.deleteUser(id);
     }
 }

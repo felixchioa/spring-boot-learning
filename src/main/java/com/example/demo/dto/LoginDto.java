@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 /**
  * This class represents the LoginDto.
+ *
  * @author FoneZzz
  */
 public class LoginDto {

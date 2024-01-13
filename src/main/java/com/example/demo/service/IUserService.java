@@ -20,12 +20,28 @@ public interface IUserService {
     List<UserDataVO> getUserList(UserDataDTO dto);
 
     /**
-     * Get user detail.
+     * Get user list.
      *
      * @param dto {@link UserDataDTO}
-     * @return {@link UserDataVO}
+     * @return {@link List<UserDataVO>}
+     */
+    List<UserDataVO> getUserListLikeName(UserDataDTO dto);
+
+    /**
+     * Insert user.
+     *
+     * @param dto {@link UserDataDTO}
+     * @return {@link int}
      */
     int insertUser(UserDataDTO dto);
+
+    /**
+     * Insert users.
+     *
+     * @param users users
+     * @return {@link int}
+     */
+    int insertUsers(List<UserDataDTO> users);
 
     /**
      * Update user.

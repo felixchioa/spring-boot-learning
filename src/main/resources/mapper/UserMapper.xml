@@ -10,8 +10,20 @@
     </resultMap>
 
     <sql id="selectUserListSql">
+        <bind name="pattern" value="'%' + user.name + '%'"/>
         SELECT id, name, age, email, avatar
         FROM m_user
+    </sql>
+
+    <sql id="selectUserLikeNameSql">
+        <bind name="pattern" value="'%' + user.name + '%'"/>
+        SELECT id, name, age, email, avatar
+        FROM m_user
+        <where>
+            <if test="user.name != null and user.name != ''">
+                name LIKE #{pattern}
+            </if>
+        </where>
     </sql>
 
     <sql id="insertUserSql">
@@ -36,15 +48,26 @@
             </if>
         </set>
         WHERE id = #{user.id}
-
     </sql>
 
     <select id="getUserList" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
         <include refid="selectUserListSql"/>
     </select>
 
+    <select id="getUserListLikeName" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
+        <include refid="selectUserLikeNameSql"/>
+    </select>
+
     <insert id="insertUser" parameterType="com.example.demo.dto.UserDataDTO">
         <include refid="insertUserSql"/>
+    </insert>
+
+    <insert id="insertUsers" parameterType="list">
+        INSERT INTO m_user (name, age, email, avatar)
+        VALUES
+        <foreach collection="list" item="user" separator="," open="" close="">
+            (#{user.name}, #{user.age}, #{user.email}, #{user.avatar})
+        </foreach>
     </insert>
 
     <update id="updateUser" parameterType="com.example.demo.dto.UserDataDTO">
@@ -56,5 +79,4 @@
         FROM m_user
         WHERE id = #{id}
     </delete>
-
 </mapper>

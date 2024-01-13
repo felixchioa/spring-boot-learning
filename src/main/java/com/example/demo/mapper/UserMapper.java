@@ -21,16 +21,32 @@ public interface UserMapper {
      * @return {@link List<UserDataVO>}
      */
 //    @Select("SELECT * FROM m_user")
-    List<UserDataVO> getUserList(@Param("req") UserDataDTO requestDto);
+    List<UserDataVO> getUserList(@Param("user") UserDataDTO requestDto);
 
     /**
-     * Get user detail.
+     * Get user list.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link List<UserDataVO>}
+     */
+    List<UserDataVO> getUserListLikeName(@Param("user") UserDataDTO requestDto);
+
+    /**
+     * Insert user.
      *
      * @param user user
-     * @return {@link UserDataVO}
+     * @return {@link int}
      */
 //    @Insert("INSERT INTO m_user (id, name, age) VALUES (#{user.id}, #{user.name}, #{user.age})")
     int insertUser(@Param("user") UserDataDTO user);
+
+    /**
+     * Insert users.
+     *
+     * @param users users
+     * @return {@link int}
+     */
+    int insertUsers(@Param("list") List<UserDataDTO> users);
 
     /**
      * Get user detail.
@@ -49,5 +65,4 @@ public interface UserMapper {
      */
 //    @Delete("DELETE FROM m_user WHERE id = #{id}")
     int deleteUser(@Param("id") Integer id);
-
 }
