@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper">
+<mapper namespace="com.example.demo.mapper.UserMapper">
     <resultMap type="com.example.demo.vo.UserDataVO" id="UserResult">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -12,6 +12,15 @@
     <sql id="selectUserListSql">
         SELECT id, name, age, email, avatar
         FROM m_user
+        <where>
+            <if test="name != null and name != ''">
+                AND name = #{name}
+            </if>
+            <if test="age != null">
+                AND age = #{age}
+            </if>
+            <!-- 更多条件 -->
+        </where>
     </sql>
 
     <select id="getUserList" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
