@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * This is the controller class for the login page.
+ *
  * @author FoneZzz
  */
 @Controller

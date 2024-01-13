@@ -31,6 +31,12 @@ public class UserController {
         return userService.getUserList(requestDto);
     }
 
+    /**
+     * Get user detail.
+     *
+     * @param id id
+     * @return {@link UserDataVO}
+     */
     @GetMapping("/user/{id}")
     public UserDataVO getUserDetail(@PathVariable Integer id) {
         System.out.println("get user detail id: " + id);
@@ -39,22 +45,38 @@ public class UserController {
         return userDataVO;
     }
 
+    /**
+     * Insert user.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link int}
+     */
     @PostMapping("/user")
-    public UserDataDTO insertUser(@RequestBody UserDataDTO dto) {
-        // TODO: insert user
-        System.out.println("insert user id: " + dto.getId());
-        System.out.println(dto);
-        return dto;
+    public int insertUser(@RequestBody UserDataDTO requestDto) {
+        System.out.println("insert user name: " + requestDto.getName());
+        System.out.println(requestDto);
+        return userService.insertUser(requestDto);
     }
 
+    /**
+     * Update user.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link UserDataVO}
+     */
     @PutMapping("/user")
-    public UserDataDTO updateUser(@RequestBody UserDataDTO dto) {
-        // TODO: update user
-        System.out.println("update user id: " + dto.getId());
-        System.out.println(dto);
-        return dto;
+    public int updateUser(@RequestBody UserDataDTO requestDto) {
+        System.out.println("update user id: " + requestDto.getId());
+        System.out.println(requestDto);
+        return userService.updateUser(requestDto);
     }
 
+    /**
+     * Delete user.
+     *
+     * @param id id
+     * @return {@link UserDataVO}
+     */
     @DeleteMapping("/user/{id}")
     public Boolean deleteUser(@PathVariable Integer id) {
         // TODO: delete user

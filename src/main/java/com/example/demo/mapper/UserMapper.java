@@ -1,9 +1,9 @@
 package com.example.demo.mapper;
 
 import com.example.demo.dto.UserDataDTO;
-import com.example.demo.entity.User;
 import com.example.demo.vo.UserDataVO;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public interface UserMapper {
      * @return {@link UserDataVO}
      */
 //    @Insert("INSERT INTO m_user (id, name, age) VALUES (#{user.id}, #{user.name}, #{user.age})")
-    int insertUser(@Param("user") User user);
+    int insertUser(@Param("user") UserDataDTO user);
 
     /**
      * Get user detail.
@@ -39,7 +39,7 @@ public interface UserMapper {
      * @return {@link UserDataVO}
      */
 //    @Update("UPDATE m_user SET name = #{user.name}, age = #{user.age} WHERE id = #{user.id}")
-    int updateUser(@Param("user") User user);
+    int updateUser(@Param("user") UserDataDTO user);
 
     /**
      * Get user detail.

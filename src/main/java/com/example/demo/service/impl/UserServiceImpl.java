@@ -30,7 +30,6 @@ public class UserServiceImpl implements IUserService {
         this.userMapper = userMapper;
     }
 
-
     /**
      * Get user list.
      *
@@ -40,5 +39,38 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserDataVO> getUserList(UserDataDTO requestDto) {
         return userMapper.getUserList(requestDto);
+    }
+
+    /**
+     * Insert user.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link int}
+     */
+    @Override
+    public int insertUser(UserDataDTO requestDto) {
+        return userMapper.insertUser(requestDto);
+    }
+
+    /**
+     * Update user.
+     *
+     * @param requestDto {@link UserDataDTO}
+     * @return {@link int}
+     */
+    @Override
+    public int updateUser(UserDataDTO requestDto) {
+        return userMapper.updateUser(requestDto);
+    }
+
+    /**
+     * Delete user.
+     *
+     * @param id id
+     * @return {@link int}
+     */
+    @Override
+    public int deleteUser(Integer id) {
+        return userMapper.deleteUser(id);
     }
 }

@@ -18,4 +18,28 @@ public interface IUserService {
      * @return {@link List<UserDataVO>}
      */
     List<UserDataVO> getUserList(UserDataDTO dto);
+
+    /**
+     * Get user detail.
+     *
+     * @param dto {@link UserDataDTO}
+     * @return {@link UserDataVO}
+     */
+    int insertUser(UserDataDTO dto);
+
+    /**
+     * Update user.
+     *
+     * @param dto {@link UserDataDTO}
+     * @return {@link UserDataVO}
+     */
+    int updateUser(UserDataDTO dto);
+
+    /**
+     * Delete user.
+     *
+     * @param id id
+     * @return {@link UserDataVO}
+     */
+    int deleteUser(Integer id);
 }
