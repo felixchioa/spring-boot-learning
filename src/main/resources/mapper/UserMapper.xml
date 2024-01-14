@@ -10,7 +10,6 @@
     </resultMap>
 
     <sql id="selectUserListSql">
-        <bind name="pattern" value="'%' + user.name + '%'"/>
         SELECT id, name, age, email, avatar
         FROM m_user
     </sql>
