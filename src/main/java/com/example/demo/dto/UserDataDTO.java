@@ -15,7 +15,7 @@ public class UserDataDTO {
     /**
      * 年龄
      */
-    private int age;
+    private Integer age;
     /**
      * 邮箱
      */

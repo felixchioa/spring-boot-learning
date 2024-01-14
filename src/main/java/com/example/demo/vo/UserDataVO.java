@@ -15,7 +15,7 @@ public class UserDataVO {
     /**
      * 年龄
      */
-    private int age;
+    private Integer age;
     /**
      * 邮箱
      */

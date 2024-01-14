@@ -25,6 +25,16 @@
         </where>
     </sql>
 
+    <sql id="selectUserByIdSql">
+        SELECT id, name, age, email, avatar
+        FROM m_user
+        <where>
+            <if test="id != null and id != ''">
+                id = #{id}
+            </if>
+        </where>
+    </sql>
+
     <sql id="insertUserSql">
         INSERT INTO m_user (name, age, email, avatar)
         VALUES (#{user.name}, #{user.age}, #{user.email}, #{user.avatar})
@@ -55,6 +65,10 @@
 
     <select id="getUserListLikeName" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
         <include refid="selectUserLikeNameSql"/>
+    </select>
+
+    <select id="getUserById" resultMap="UserResult" resultType="com.example.demo.vo.UserDataVO">
+        <include refid="selectUserByIdSql"/>
     </select>
 
     <insert id="insertUser" parameterType="com.example.demo.dto.UserDataDTO">

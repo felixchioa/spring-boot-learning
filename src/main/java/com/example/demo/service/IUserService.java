@@ -28,6 +28,14 @@ public interface IUserService {
     List<UserDataVO> getUserListLikeName(UserDataDTO dto);
 
     /**
+     * Get user detail.
+     *
+     * @param id {@link Integer}
+     * @return {@link UserDataVO}
+     */
+    UserDataVO getUserById(Integer id);
+
+    /**
      * Insert user.
      *
      * @param dto {@link UserDataDTO}

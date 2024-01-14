@@ -38,7 +38,7 @@ public class UserController {
      */
     @PostMapping("/users/name")
     public List<UserDataVO> getUserListLikeName(@RequestBody UserDataDTO requestDto) {
-        System.out.println("get user list name like : " + requestDto.getName());
+        System.out.println("get user list. name like : " + requestDto.getName());
         return userService.getUserListLikeName(requestDto);
     }
 
@@ -51,9 +51,8 @@ public class UserController {
     @GetMapping("/user/{id}")
     public UserDataVO getUserDetail(@PathVariable Integer id) {
         System.out.println("get user detail id: " + id);
-        UserDataVO userDataVO = new UserDataVO();
-        userDataVO.setAge(id);
-        return userDataVO;
+        return userService.getUserById(id);
+
     }
 
     /**

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 /**
  * This is the service class for the user page.
  *
@@ -49,6 +48,16 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserDataVO> getUserListLikeName(UserDataDTO requestDto) {
         return userMapper.getUserListLikeName(requestDto);
+    }
+
+    /**
+     * Get user detail.
+     *
+     * @param id {@link Integer}
+     * @return {@link UserDataVO}
+     */
+    public UserDataVO getUserById(Integer id) {
+        return userMapper.getUserById(id);
     }
 
     /**
