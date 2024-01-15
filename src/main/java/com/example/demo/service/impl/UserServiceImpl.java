@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dto.UserDataDTO;
+import com.example.demo.exception.ServiceException;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.IUserService;
 import com.example.demo.vo.UserDataVO;
@@ -68,16 +69,25 @@ public class UserServiceImpl implements IUserService {
      * @return {@link int}
      */
     @Override
-    @Transactional
+    @Transactional()
     public int insertUser(UserDataDTO requestDto) {
+        // 正常逻辑
 //        return userMapper.insertUser(requestDto);
-        try {
-            userMapper.insertUser(requestDto);
-            throw new RuntimeException("Test transactional");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+
+        // 测试事务
+//        try {
+//            userMapper.insertUser(requestDto);
+//            throw new RuntimeException("Test transactional");
+//        } catch (Exception e) {
+//            System.out.println("Error: " + e.getMessage());
+//        }
+
+        // 测试全局异常拦截器
+        if("admin".equals(requestDto.getName())) {
+            throw new ServiceException("admin用户不允许添加");
         }
-        return 0;
+
+        return userMapper.insertUser(requestDto);
     }
 
     /**
