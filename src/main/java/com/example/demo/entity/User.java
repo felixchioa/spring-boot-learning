@@ -15,7 +15,7 @@ public class User {
     /**
      * 年龄
      */
-    private int age;
+    private Integer age;
     /**
      * 邮箱
      */
@@ -41,11 +41,11 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
