@@ -5,13 +5,15 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+/**
+ * Aspect for logging requests to controller methods.
+ *
+ * @author FoneZzz
+ */
 @Aspect
 @Component
 public class RequestAspect {
     @Before("execution(* com.example.demo.controller.*.*(..))")
-//    @After("execution(* com.example.demo.controller.*.*(..))")
-//    @AfterReturning("execution(* com.example.demo.controller.*.*(..))")
-//    @Around("execution(* com.example.demo.controller.*.*(..))")
     public void logBeforeControllerMethod(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
         String methodName = joinPoint.getSignature().toShortString();

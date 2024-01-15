@@ -1,5 +1,10 @@
 package com.example.demo.common;
 
+/**
+ * This is the common class for the response.
+ *
+ * @author FoneZzz
+ */
 public class R<T> {
     private int code;
 
@@ -57,4 +62,3 @@ public class R<T> {
         this.data = data;
     }
 }
-

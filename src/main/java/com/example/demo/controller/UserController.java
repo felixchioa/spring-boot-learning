@@ -39,7 +39,8 @@ public class UserController {
     /**
      * Get user list.
      *
-     * @param requestDto {@link UserDataDTO}
+     * @param requestDto
+     *            {@link UserDataDTO}
      * @return {@link List<UserDataVO>}
      */
     @PostMapping("/users/name")
@@ -52,7 +53,8 @@ public class UserController {
     /**
      * Get user detail.
      *
-     * @param id id
+     * @param id
+     *            id
      * @return {@link UserDataVO}
      */
     @GetMapping("/user/{id}")
@@ -65,7 +67,8 @@ public class UserController {
     /**
      * Insert user.
      *
-     * @param requestDto {@link UserDataDTO}
+     * @param requestDto
+     *            {@link UserDataDTO}
      * @return {@link int}
      */
     @PostMapping("/user")
@@ -78,7 +81,8 @@ public class UserController {
     /**
      * Insert users.
      *
-     * @param users {@link List<UserDataDTO>}
+     * @param users
+     *            {@link List<UserDataDTO>}
      * @return {@link int}
      */
     @PostMapping("/users")
@@ -89,7 +93,8 @@ public class UserController {
     /**
      * Update user.
      *
-     * @param requestDto {@link UserDataDTO}
+     * @param requestDto
+     *            {@link UserDataDTO}
      * @return {@link UserDataVO}
      */
     @PutMapping("/user")
@@ -102,7 +107,8 @@ public class UserController {
     /**
      * Delete user.
      *
-     * @param id id
+     * @param id
+     *            id
      * @return {@link UserDataVO}
      */
     @DeleteMapping("/user/{id}")

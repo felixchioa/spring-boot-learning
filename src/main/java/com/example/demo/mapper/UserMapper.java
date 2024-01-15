@@ -17,7 +17,8 @@ public interface UserMapper {
     /**
      * Get user list.
      *
-     * @param requestDto {@link UserDataDTO}
+     * @param requestDto
+     *            {@link UserDataDTO}
      * @return {@link List<UserDataVO>}
      */
     List<UserDataVO> getUserList(@Param("user") UserDataDTO requestDto);
@@ -26,7 +27,8 @@ public interface UserMapper {
     /**
      * Get user list.
      *
-     * @param requestDto {@link UserDataDTO}
+     * @param requestDto
+     *            {@link UserDataDTO}
      * @return {@link List<UserDataVO>}
      */
     List<UserDataVO> getUserListLikeName(@Param("user") UserDataDTO requestDto);
@@ -34,7 +36,8 @@ public interface UserMapper {
     /**
      * Get user detail.
      *
-     * @param id {@link Integer}
+     * @param id
+     *            {@link Integer}
      * @return {@link UserDataVO}
      */
     UserDataVO getUserById(Integer id);
@@ -42,7 +45,8 @@ public interface UserMapper {
     /**
      * Insert user.
      *
-     * @param user user
+     * @param user
+     *            user
      * @return {@link int}
      */
     int insertUser(@Param("user") UserDataDTO user);
@@ -52,7 +56,8 @@ public interface UserMapper {
     /**
      * Insert users.
      *
-     * @param users users
+     * @param users
+     *            users
      * @return {@link int}
      */
     int insertUsers(@Param("list") List<UserDataDTO> users);
@@ -60,7 +65,8 @@ public interface UserMapper {
     /**
      * Get user detail.
      *
-     * @param user user
+     * @param user
+     *            user
      * @return {@link UserDataVO}
      */
     int updateUser(@Param("user") UserDataDTO user);
@@ -70,7 +76,8 @@ public interface UserMapper {
     /**
      * Get user detail.
      *
-     * @param id id
+     * @param id
+     *            id
      * @return {@link UserDataVO}
      */
     int deleteUser(@Param("id") Integer id);

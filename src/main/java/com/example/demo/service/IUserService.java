@@ -14,7 +14,8 @@ public interface IUserService {
     /**
      * Get user list.
      *
-     * @param dto {@link UserDataDTO}
+     * @param dto
+     *            {@link UserDataDTO}
      * @return {@link List<UserDataVO>}
      */
     List<UserDataVO> getUserList(UserDataDTO dto);
@@ -22,7 +23,8 @@ public interface IUserService {
     /**
      * Get user list.
      *
-     * @param dto {@link UserDataDTO}
+     * @param dto
+     *            {@link UserDataDTO}
      * @return {@link List<UserDataVO>}
      */
     List<UserDataVO> getUserListLikeName(UserDataDTO dto);
@@ -30,7 +32,8 @@ public interface IUserService {
     /**
      * Get user detail.
      *
-     * @param id {@link Integer}
+     * @param id
+     *            {@link Integer}
      * @return {@link UserDataVO}
      */
     UserDataVO getUserById(Integer id);
@@ -38,7 +41,8 @@ public interface IUserService {
     /**
      * Insert user.
      *
-     * @param dto {@link UserDataDTO}
+     * @param dto
+     *            {@link UserDataDTO}
      * @return {@link int}
      */
     int insertUser(UserDataDTO dto);
@@ -46,7 +50,8 @@ public interface IUserService {
     /**
      * Insert users.
      *
-     * @param users users
+     * @param users
+     *            users
      * @return {@link int}
      */
     int insertUsers(List<UserDataDTO> users);
@@ -54,7 +59,8 @@ public interface IUserService {
     /**
      * Update user.
      *
-     * @param dto {@link UserDataDTO}
+     * @param dto
+     *            {@link UserDataDTO}
      * @return {@link UserDataVO}
      */
     int updateUser(UserDataDTO dto);
@@ -62,7 +68,8 @@ public interface IUserService {
     /**
      * Delete user.
      *
-     * @param id id
+     * @param id
+     *            id
      * @return {@link UserDataVO}
      */
     int deleteUser(Integer id);

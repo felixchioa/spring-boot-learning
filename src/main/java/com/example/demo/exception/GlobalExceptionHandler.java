@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * GlobalExceptionHandler
+ *
+ * @author FoneZzz
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(ServiceException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseEntity<R> handleServiceException(ServiceException e) {
+    public ResponseEntity<R<Boolean>> handleServiceException(ServiceException e) {
         System.out.println("全局异常拦截器捕获: " + e.getMessage());
-        return new ResponseEntity<>(R.error(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<R<Boolean>>(R.error(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
