@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.UserDataDTO;
 import com.example.demo.service.IUserService;
 import com.example.demo.vo.UserDataVO;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +16,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    @Autowired
-    private IUserService userService;
+    private final IUserService userService;
+
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
 
     /**
      * Get user list.
@@ -25,7 +28,9 @@ public class UserController {
      * @return {@link List<UserDataVO>}
      */
     @GetMapping("/user")
+    @Cacheable(value = "userList")
     public List<UserDataVO> getUserList(UserDataDTO requestDto) {
+        // FIXME 参数如果是DTO，目前有问题
         System.out.println("get user list");
         return userService.getUserList(requestDto);
     }
@@ -37,6 +42,7 @@ public class UserController {
      * @return {@link List<UserDataVO>}
      */
     @PostMapping("/users/name")
+    @Cacheable(value = "userList")
     public List<UserDataVO> getUserListLikeName(@RequestBody UserDataDTO requestDto) {
         System.out.println("get user list. name like : " + requestDto.getName());
         return userService.getUserListLikeName(requestDto);
