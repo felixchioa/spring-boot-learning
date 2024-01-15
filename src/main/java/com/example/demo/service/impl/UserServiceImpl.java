@@ -7,6 +7,7 @@ import com.example.demo.vo.UserDataVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -67,8 +68,16 @@ public class UserServiceImpl implements IUserService {
      * @return {@link int}
      */
     @Override
+    @Transactional
     public int insertUser(UserDataDTO requestDto) {
-        return userMapper.insertUser(requestDto);
+//        return userMapper.insertUser(requestDto);
+        try {
+            userMapper.insertUser(requestDto);
+            throw new RuntimeException("Test transactional");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return 0;
     }
 
     /**
@@ -78,6 +87,7 @@ public class UserServiceImpl implements IUserService {
      * @return {@link int}
      */
     @Override
+    @Transactional
     public int insertUsers(List<UserDataDTO> users) {
         return userMapper.insertUsers(users);
     }
@@ -89,6 +99,7 @@ public class UserServiceImpl implements IUserService {
      * @return {@link int}
      */
     @Override
+    @Transactional
     public int updateUser(UserDataDTO requestDto) {
         return userMapper.updateUser(requestDto);
     }
@@ -100,6 +111,7 @@ public class UserServiceImpl implements IUserService {
      * @return {@link int}
      */
     @Override
+    @Transactional
     public int deleteUser(Integer id) {
         return userMapper.deleteUser(id);
     }
