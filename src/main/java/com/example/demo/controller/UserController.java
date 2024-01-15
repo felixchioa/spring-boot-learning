@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.R;
 import com.example.demo.dto.UserDataDTO;
 import com.example.demo.service.IUserService;
 import com.example.demo.vo.UserDataVO;
@@ -29,10 +30,10 @@ public class UserController {
      */
     @GetMapping("/user")
     @Cacheable(value = "userList")
-    public List<UserDataVO> getUserList(UserDataDTO requestDto) {
+    public R<List<UserDataVO>> getUserList(UserDataDTO requestDto) {
         // FIXME 参数如果是DTO，目前有问题
         System.out.println("get user list");
-        return userService.getUserList(requestDto);
+        return R.success(userService.getUserList(requestDto));
     }
 
     /**

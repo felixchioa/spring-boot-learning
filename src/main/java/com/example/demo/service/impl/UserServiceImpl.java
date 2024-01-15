@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.dto.UserDataDTO;
-//import com.example.demo.exception.ServiceException;
+import com.example.demo.exception.ServiceException;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.IUserService;
 import com.example.demo.vo.UserDataVO;
@@ -72,7 +72,7 @@ public class UserServiceImpl implements IUserService {
     @Transactional()
     public int insertUser(UserDataDTO requestDto) {
         // 正常逻辑
-        return userMapper.insertUser(requestDto);
+//        return userMapper.insertUser(requestDto);
 
         // 测试事务
 //        try {
@@ -83,11 +83,11 @@ public class UserServiceImpl implements IUserService {
 //        }
 
         // 测试全局异常拦截器
-//        if("admin".equals(requestDto.getName())) {
-//            throw new ServiceException("admin用户不允许添加");
-//        }
-//
-//        return userMapper.insertUser(requestDto);
+        if ("admin".equals(requestDto.getName())) {
+            throw new ServiceException("admin用户不允许添加");
+        }
+
+        return userMapper.insertUser(requestDto);
     }
 
     /**
